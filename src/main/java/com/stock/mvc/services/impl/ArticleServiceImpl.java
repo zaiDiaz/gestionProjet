@@ -2,10 +2,13 @@ package com.stock.mvc.services.impl;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.stock.mvc.dao.IArticleDao;
-import com.stock.mvc.entities.Article;
+import com.stock.mvc.entites.Article;
 import com.stock.mvc.services.IArticleService;
 
+@Transactional
 public class ArticleServiceImpl implements IArticleService {
 
 	IArticleDao dao;

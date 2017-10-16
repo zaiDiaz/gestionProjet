@@ -2,7 +2,7 @@ package com.stock.mvc.services;
 
 import java.util.List;
 
-import com.stock.mvc.entities.Article;
+import com.stock.mvc.entites.Article;
 
 public interface IArticleService {
 
