@@ -1,8 +1,9 @@
-package com.stock.mvc.services;
+package com.stock.mvc.services.impl;
 
 import java.io.InputStream;
 
 import com.stock.mvc.dao.IFlickrDao;
+import com.stock.mvc.services.IflickrService;
 
 public class FlickrServiceImpl implements IflickrService {
 	
