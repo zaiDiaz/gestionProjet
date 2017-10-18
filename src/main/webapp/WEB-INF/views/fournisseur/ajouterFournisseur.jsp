@@ -50,7 +50,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header"> <fmt:message key="client.nouveau" /></h1>
+                        <h1 class="page-header"> <fmt:message key="fournisseur.nouveau" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -59,13 +59,13 @@
 	                <div class="col-lg-12">
 	                    <div class="panel panel-primary">
 	                        <div class="panel-heading">
-	                            <fmt:message key="client.nouveau" />
+	                            <fmt:message key="fournisseur.nouveau" />
 	                        </div>
 	                        <!-- /.panel-heading -->
 	                        <div class="panel-body">
-	                        	<c:url value="/client/enregistrer" var ="urlEnregistrer" />
-								<f:form modelAttribute="client" action="${urlEnregistrer }" enctype="multipart/form-data" role = "form">
-									<f:hidden path="idClient"/>
+	                        	<c:url value="/fournisseur/enregistrer" var ="urlEnregistrer" />
+								<f:form modelAttribute="fournisseur" action="${urlEnregistrer }" enctype="multipart/form-data" role = "form">
+									<f:hidden path="idFournisseur"/>
 									<f:hidden path="photo"/>
 									<div class="form-group">
                                         <label><fmt:message key="common.nom" /></label>
@@ -89,7 +89,7 @@
                                     </div>
                                     <div class="panel-footer">
                                     	<button type="submit" class="btn btn-primary"><i class="fa fa-save">&nbsp;<fmt:message key="common.enregister" /></i></button>
-                                    	<a href="<c:url value="/client/" />" class="btn btn-danger"> <i class="fa fa-arrow-left">&nbsp;<fmt:message key="common.annuler" /></i></a>
+                                    	<a href="<c:url value="/fournisseur/" />" class="btn btn-danger"> <i class="fa fa-arrow-left">&nbsp;<fmt:message key="common.annuler" /></i></a>
                                     </div>
 								</f:form>	                        
 	                        </div>

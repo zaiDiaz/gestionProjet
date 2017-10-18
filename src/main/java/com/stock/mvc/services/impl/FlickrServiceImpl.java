@@ -2,10 +2,13 @@ package com.stock.mvc.services.impl;
 
 import java.io.InputStream;
 
-import com.stock.mvc.dao.IFlickrDao;
-import com.stock.mvc.services.IflickrService;
+import org.springframework.transaction.annotation.Transactional;
 
-public class FlickrServiceImpl implements IflickrService {
+import com.stock.mvc.dao.IFlickrDao;
+import com.stock.mvc.services.IFlickrService;
+
+@Transactional
+public class FlickrServiceImpl implements IFlickrService {
 	
 	private IFlickrDao dao;
 	
@@ -14,9 +17,8 @@ public class FlickrServiceImpl implements IflickrService {
 	}
 
 	@Override
-	public String savePhoto(InputStream stream, String fileName) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public String savePhoto(InputStream photo, String title) throws Exception {
+		return dao.savePhoto(photo, title);
 	}
 
 }

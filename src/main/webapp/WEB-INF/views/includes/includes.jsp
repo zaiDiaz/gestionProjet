@@ -4,9 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page session="true" %>
 <%@ page trimDirectiveWhitespaces="true" %>
-<%
+<% 
 	String locale = "fr_FR";
-
 // 	if(!session.getAttribute("locale").toString().equals(null)) {
 // 		locale = session.getAttribute("locale").toString();
 // 	}

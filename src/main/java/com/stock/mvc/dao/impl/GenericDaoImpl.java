@@ -12,22 +12,20 @@ import com.stock.mvc.dao.IGenericDao;
 
 @SuppressWarnings("unchecked")
 public class GenericDaoImpl<E> implements IGenericDao<E> {
-
+	
 	@PersistenceContext
 	EntityManager em;
-
+	
 	private Class<E> type;
+	
+	public Class<E> getType() {
+		return type;
+	}
 
 	public GenericDaoImpl() {
 		Type t = getClass().getGenericSuperclass();
 		ParameterizedType pt = (ParameterizedType) t;
 		type = (Class<E>) pt.getActualTypeArguments()[0];
-	}
-	
-	
-
-	public Class<E> getType() {
-		return type;
 	}
 
 	@Override
@@ -49,8 +47,7 @@ public class GenericDaoImpl<E> implements IGenericDao<E> {
 
 	@Override
 	public List<E> selectAll(String sortField, String sort) {
-		Query query = em.createQuery("select t from " + type.getSimpleName() + " t"
-				+ " order by " + sortField + " " + sort); 
+		Query query = em.createQuery("select t from " + type.getSimpleName() + " t order by " + sortField + " " + sort);
 		return query.getResultList();
 	}
 
@@ -67,8 +64,7 @@ public class GenericDaoImpl<E> implements IGenericDao<E> {
 
 	@Override
 	public E findOne(String paramName, Object paramValue) {
-		Query query = em.createQuery("select t from " + type.getSimpleName() + " t "
-				+ "where " + paramName + " = :x ");
+		Query query = em.createQuery("select t from " + type.getSimpleName() + " t where " + paramName + " = :x");
 		query.setParameter(paramName, paramValue);
 		return query.getResultList().size() > 0 ? (E) query.getResultList().get(0) : null;
 	}
@@ -78,17 +74,15 @@ public class GenericDaoImpl<E> implements IGenericDao<E> {
 		if (paramNames.length != paramValues.length) {
 			return null;
 		}
-		
-		String queryString = "select e from " + type.getSimpleName() + " t where ";
+		String queryString = "select e from " + type.getSimpleName() + " e where ";
 		int len = paramNames.length;
-		for(int i = 0; i < len; i++) {
-			queryString += "e." + paramNames[i] + "= :x" + i;
+		for (int i = 0; i < len; i++) {
+			queryString += " e." + paramNames[i] + "= :x" + i;
 			if ((i + 1) < len) {
 				queryString += " and ";
 			}
 		}
-		
-		Query query = em.createNamedQuery(queryString);
+		Query query = em.createQuery(queryString);
 		for (int i = 0; i < paramValues.length; i++) {
 			query.setParameter("x" + i, paramValues[i]);
 		}
@@ -97,8 +91,7 @@ public class GenericDaoImpl<E> implements IGenericDao<E> {
 
 	@Override
 	public int findCountBy(String paramName, String paramValue) {
-		Query query = em.createQuery("select t from " + type.getSimpleName() + " t "
-				+ "where " + paramName + " = :x ");
+		Query query = em.createQuery("select t from " + type.getSimpleName() + " t where " + paramName + " = :x");
 		query.setParameter(paramName, paramValue);
 		return query.getResultList().size() > 0 ? ((Long) query.getSingleResult()).intValue() : 0;
 	}

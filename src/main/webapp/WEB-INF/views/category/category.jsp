@@ -19,12 +19,6 @@
 
     <!-- Custom CSS -->
     <link href="<%=request.getContextPath() %>/resources/dist/css/sb-admin-2.css" rel="stylesheet">
-    
-    <!-- DataTables CSS -->
-    <link href="<%=request.getContextPath() %>/resources/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
-
-    <!-- DataTables Responsive CSS -->
-    <link href="<%=request.getContextPath() %>/resources/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="<%=request.getContextPath() %>/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -56,15 +50,19 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header"><fmt:message key="common.client" /></h1>
+                        <h1 class="page-header"><fmt:message key="common.parametrage.category" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 
+                 <div id="errorBlock" class="alert alert-danger alert-dismissable" style="display:none;">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                     <span id="errorMsg"></span>
+                 </div>
                 <div class="row">
 					<div class="col-lg-12">
 						<ol class="breadcrumb">
-						  <li><a href="<c:url value="/client/nouveau" />" ><i class="fa fa-plus">&nbsp;<fmt:message key="common.ajouter" /></i></a></li>
+						  <li><a href="<c:url value="/category/nouveau" />" ><i class="fa fa-plus">&nbsp;<fmt:message key="common.ajouter" /></i></a></li>
 						  <li><a href="#"><i class="fa fa-download">&nbsp;<fmt:message key="common.exporter" /></i></a></li>
 						  <li><a href="#"><i class="fa fa-upload">&nbsp;<fmt:message key="common.importer" /></i></a></li>
 						</ol>					
@@ -75,35 +73,29 @@
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <fmt:message key="client.liste" />
+                            <fmt:message key="category.liste" />
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th><fmt:message key="common.photo" /></th>
-                                        <th><fmt:message key="common.nom" /></th>
-                                        <th><fmt:message key="common.prenom" /></th>
-                                        <th><fmt:message key="common.adresse" /></th>
-                                        <th><fmt:message key="common.mail" /></th>
+                                        <th><fmt:message key="common.code" /></th>
+                                        <th><fmt:message key="common.designation" /></th>
                                         <th><fmt:message key="common.actions" /></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                	<c:forEach items="${clients }" var = "client">
+                                	<c:forEach items="${categories }" var = "cat">
 	                                    <tr class="odd gradeX">
-	                                        <td class="center"><img src="${client.getPhoto() }" width="50px" height="50px"/></td>
-	                                        <td>${client.getNom() }</td>
-	                                        <td>${client.getPrenom() }</td>
-	                                        <td >${client.getAdresse() }</td>
-	                                        <td>${client.getMail() }</td>
+	                                        <td>${cat.getCode() }</td>
+	                                        <td>${cat.getDesignation() }</td>
 	                                        <td>
-	                                        	<c:url value="/client/modifier/${client.getIdClient() }" var="urlModif" />
+	                                        	<c:url value="/category/modifier/${cat.getIdCategory() }" var="urlModif" />
 	                                        	<a href="${urlModif }"><i class="fa fa-edit"></i></a>
 	                                        	&nbsp;|&nbsp;
-	                                        	<a href="javascript:void(0);" data-toggle="modal" data-target="#modalClient${client.getIdClient() }"><i class="fa fa-trash-o"></i></a>
-	                                        	<div class="modal fade" id="modalClient${client.getIdClient() }" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	                                        	<a href="javascript:void(0);" data-toggle="modal" data-target="#modalCategory${cat.getIdCategory() }"><i class="fa fa-trash-o"></i></a>
+	                                        	<div class="modal fade" id="modalCategory${cat.getIdCategory() }" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 													<div class="modal-dialog">
 														<div class="modal-content">
 															<div class="modal-header">
@@ -111,12 +103,12 @@
 																<h4 class="modal-title" id="myModalLabel"><fmt:message key="common.confirm.suppression" /></h4>
 															</div>
 															<div class="modal-body">
-																<fmt:message key="client.confirm.suppression.msg" />
+																<fmt:message key="category.confirm.suppression.msg" />
 															</div>
 															<div class="modal-footer">
 																<button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="common.annuler" /></button>
-																<c:url value="/client/supprimer/${client.getIdClient() }" var="urlSuppression" />
-																<a href="${urlSuppression }" class="btn btn-danger"><i class="fa fa-trash-o"></i>&nbsp;<fmt:message key="common.confirmer" /></a>
+																<c:url value="/category/supprimer/${cat.getIdCategory() }" var="urlSuppression" />
+																<button type="button" data-dismiss="modal" class="btn btn-danger supprimerArticle" onclick="supprimerArticle(${urlSuppression });"><i class="fa fa-trash-o"></i>&nbsp;<fmt:message key="common.confirmer" /></button>
 															</div>
 														</div>
 														<!-- /.modal-content -->
@@ -154,26 +146,10 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="<%=request.getContextPath() %>/resources/vendor/metisMenu/metisMenu.min.js"></script>
 
-    
-    <!-- DataTables JavaScript -->
-    <script src="<%=request.getContextPath() %>/resources/vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="<%=request.getContextPath() %>/resources/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-    <script src="<%=request.getContextPath() %>/resources/vendor/datatables-responsive/dataTables.responsive.js"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="<%=request.getContextPath() %>/resources/dist/js/sb-admin-2.js"></script>
-    
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
 
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
-    });
-    </script>
+    <script src="<%=request.getContextPath() %>/resources/javascript/category.js"></script>
 </body>
 
 </html>

@@ -56,7 +56,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header"><fmt:message key="common.client" /></h1>
+                        <h1 class="page-header"><fmt:message key="common.fournisseur" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -64,7 +64,7 @@
                 <div class="row">
 					<div class="col-lg-12">
 						<ol class="breadcrumb">
-						  <li><a href="<c:url value="/client/nouveau" />" ><i class="fa fa-plus">&nbsp;<fmt:message key="common.ajouter" /></i></a></li>
+						  <li><a href="<c:url value="/fournisseur/nouveau" />" ><i class="fa fa-plus">&nbsp;<fmt:message key="common.ajouter" /></i></a></li>
 						  <li><a href="#"><i class="fa fa-download">&nbsp;<fmt:message key="common.exporter" /></i></a></li>
 						  <li><a href="#"><i class="fa fa-upload">&nbsp;<fmt:message key="common.importer" /></i></a></li>
 						</ol>					
@@ -75,7 +75,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <fmt:message key="client.liste" />
+                            <fmt:message key="fournisseur.liste" />
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -91,19 +91,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                	<c:forEach items="${clients }" var = "client">
+                                	<c:forEach items="${fournisseurs }" var = "fournisseur">
 	                                    <tr class="odd gradeX">
-	                                        <td class="center"><img src="${client.getPhoto() }" width="50px" height="50px"/></td>
-	                                        <td>${client.getNom() }</td>
-	                                        <td>${client.getPrenom() }</td>
-	                                        <td >${client.getAdresse() }</td>
-	                                        <td>${client.getMail() }</td>
+	                                        <td class="center"><img src="${fournisseur.getPhoto() }" width="50px" height="50px"/></td>
+	                                        <td>${fournisseur.getNom() }</td>
+	                                        <td>${fournisseur.getPrenom() }</td>
+	                                        <td >${fournisseur.getAdresse() }</td>
+	                                        <td>${fournisseur.getMail() }</td>
 	                                        <td>
-	                                        	<c:url value="/client/modifier/${client.getIdClient() }" var="urlModif" />
+	                                        	<c:url value="/fournisseur/modifier/${fournisseur.getIdFournisseur() }" var="urlModif" />
 	                                        	<a href="${urlModif }"><i class="fa fa-edit"></i></a>
 	                                        	&nbsp;|&nbsp;
-	                                        	<a href="javascript:void(0);" data-toggle="modal" data-target="#modalClient${client.getIdClient() }"><i class="fa fa-trash-o"></i></a>
-	                                        	<div class="modal fade" id="modalClient${client.getIdClient() }" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	                                        	<a href="javascript:void(0);" data-toggle="modal" data-target="#modalfournisseur${fournisseur.getIdFournisseur() }"><i class="fa fa-trash-o"></i></a>
+	                                        	<div class="modal fade" id="modalfournisseur${fournisseur.getIdFournisseur() }" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 													<div class="modal-dialog">
 														<div class="modal-content">
 															<div class="modal-header">
@@ -111,11 +111,11 @@
 																<h4 class="modal-title" id="myModalLabel"><fmt:message key="common.confirm.suppression" /></h4>
 															</div>
 															<div class="modal-body">
-																<fmt:message key="client.confirm.suppression.msg" />
+																<fmt:message key="fournisseur.confirm.suppression.msg" />
 															</div>
 															<div class="modal-footer">
 																<button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="common.annuler" /></button>
-																<c:url value="/client/supprimer/${client.getIdClient() }" var="urlSuppression" />
+																<c:url value="/fournisseur/supprimer/${fournisseur.getIdFournisseur() }" var="urlSuppression" />
 																<a href="${urlSuppression }" class="btn btn-danger"><i class="fa fa-trash-o"></i>&nbsp;<fmt:message key="common.confirmer" /></a>
 															</div>
 														</div>

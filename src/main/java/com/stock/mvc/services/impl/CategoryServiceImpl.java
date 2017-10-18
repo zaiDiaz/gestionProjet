@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.stock.mvc.dao.ICategoryDao;
+import com.stock.mvc.entites.Article;
 import com.stock.mvc.entites.Category;
 import com.stock.mvc.services.ICategoryService;
 
@@ -60,6 +61,11 @@ public class CategoryServiceImpl implements ICategoryService {
 	@Override
 	public int findCountBy(String paramName, String paramValue) {
 		return dao.findCountBy(paramName, paramValue);
+	}
+
+	@Override
+	public List<Article> selectAllArticlesByCategory(Long idCategory) {
+		return dao.selectAllArticlesByCategory(idCategory);
 	}
 
 }

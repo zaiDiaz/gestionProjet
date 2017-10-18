@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Gestion de stock mvc</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<%=request.getContextPath() %>/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -40,7 +40,7 @@
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             
             <%@ include file="/WEB-INF/views/menu_top/topMenu.jsp" %>
-
+			
             <%@ include file="/WEB-INF/views/menu_left/leftMenu.jsp" %>
             <!-- /.navbar-static-side -->
         </nav>
@@ -50,7 +50,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Blank</h1>
+                        <h1 class="page-header">Blank page</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>

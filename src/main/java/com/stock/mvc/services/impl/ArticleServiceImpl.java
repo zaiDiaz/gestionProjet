@@ -10,9 +10,9 @@ import com.stock.mvc.services.IArticleService;
 
 @Transactional
 public class ArticleServiceImpl implements IArticleService {
-
-	IArticleDao dao;
-
+	
+	private IArticleDao dao;
+	
 	public void setDao(IArticleDao dao) {
 		this.dao = dao;
 	}
@@ -58,8 +58,8 @@ public class ArticleServiceImpl implements IArticleService {
 	}
 
 	@Override
-	public int findCountBy(String paramName, String ParamValue) {
-		return dao.findCountBy(paramName, ParamValue);
+	public int findCountBy(String paramName, String paramValue) {
+		return dao.findCountBy(paramName, paramValue);
 	}
 
 }

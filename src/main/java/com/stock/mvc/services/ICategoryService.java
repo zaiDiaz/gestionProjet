@@ -2,6 +2,7 @@ package com.stock.mvc.services;
 
 import java.util.List;
 
+import com.stock.mvc.entites.Article;
 import com.stock.mvc.entites.Category;
 
 public interface ICategoryService {
@@ -23,5 +24,7 @@ public interface ICategoryService {
 	public Category findOne(String[] paramNames, Object[] paramValues);
 
 	public int findCountBy(String paramName, String paramValue);
+	
+	public List<Article> selectAllArticlesByCategory(Long idCategory);
 
 }
