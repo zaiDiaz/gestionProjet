@@ -14,17 +14,17 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class CommandeClient implements Serializable {
+public class CommandeClient implements Serializable{
 
 	@Id
 	@GeneratedValue
 	private Long idCommandeClient;
-
+	
 	private String code;
-
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateCommande;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "idClient")
 	private Client client;
@@ -71,5 +71,4 @@ public class CommandeClient implements Serializable {
 	public void setLigneCommandeClients(List<LigneCommandeClient> ligneCommandeClients) {
 		this.ligneCommandeClients = ligneCommandeClients;
 	}
-
 }

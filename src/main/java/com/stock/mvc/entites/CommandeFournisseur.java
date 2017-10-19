@@ -14,19 +14,19 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class CommandeFournisseur implements Serializable {
+public class CommandeFournisseur implements Serializable{
 
 	@Id
 	@GeneratedValue
 	private Long idCommandeFournisseur;
-
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateCommande;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "idFournisseur")
 	private Fournisseur fournisseur;
-
+	
 	@OneToMany(mappedBy = "commandeFournisseur")
 	private List<LigneCommandeFournisseur> ligneCommandeFournisseurs;
 
@@ -61,5 +61,7 @@ public class CommandeFournisseur implements Serializable {
 	public void setLigneCommandeFournisseurs(List<LigneCommandeFournisseur> ligneCommandeFournisseurs) {
 		this.ligneCommandeFournisseurs = ligneCommandeFournisseurs;
 	}
-
+	
+	
+	
 }

@@ -50,7 +50,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header"> <fmt:message key="category.nouveau" /></h1>
+                        <h1 class="page-header"> <fmt:message code="category.nouveau" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -59,7 +59,7 @@
 	                <div class="col-lg-12">
 	                    <div class="panel panel-primary">
 	                        <div class="panel-heading">
-	                            <fmt:message key="category.nouveau" />
+	                            <fmt:message code="category.nouveau" />
 	                        </div>
 	                        <!-- /.panel-heading -->
 	                        <div class="panel-body">
@@ -67,16 +67,16 @@
 								<f:form modelAttribute="category" action="${urlEnregistrer }">
 									<f:hidden path="idCategory"/>
 									<div class="form-group">
-                                        <label><fmt:message key="common.code" /></label>
+                                        <label><fmt:message code="common.code" /></label>
                                         <f:input path="code" class="form-control" placeholder="Code" />
                                     </div>
 									<div class="form-group">
-                                        <label><fmt:message key="common.designation" /></label>
+                                        <label><fmt:message code="common.designation" /></label>
                                         <f:input path="designation" class="form-control" placeholder="Designation" />
                                     </div>
                                     <div class="panel-footer">
-                                    	<button type="submit" class="btn btn-primary"><i class="fa fa-save">&nbsp;<fmt:message key="common.enregister" /></i></button>
-                                    	<a href="<c:url value="/category/" />" class="btn btn-danger"> <i class="fa fa-arrow-left">&nbsp;<fmt:message key="common.annuler" /></i></a>
+                                    	<button type="submit" class="btn btn-primary"><i class="fa fa-save">&nbsp;<fmt:message code="common.enregister" /></i></button>
+                                    	<a href="<c:url value="/category/" />" class="btn btn-danger"> <i class="fa fa-arrow-left">&nbsp;<fmt:message code="common.annuler" /></i></a>
                                     </div>
 								</f:form>	                        
 	                        </div>

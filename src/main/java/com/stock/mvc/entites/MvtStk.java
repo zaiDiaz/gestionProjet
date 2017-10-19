@@ -13,22 +13,23 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class MvtStk implements Serializable {
-
-	public static final int ANTREE = 1;
+public class MvtStk implements Serializable{
+	
+	public static final int ENTREE = 1;
+	
 	public static final int SORTIE = 2;
 
 	@Id
 	@GeneratedValue
 	private Long idMvtStk;
-
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateMvt;
-
+	
 	private BigDecimal quantite;
-
+	
 	private int typeMvt;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "idArticle")
 	private Article article;
@@ -72,5 +73,7 @@ public class MvtStk implements Serializable {
 	public void setArticle(Article article) {
 		this.article = article;
 	}
-
+	
+	
+	
 }

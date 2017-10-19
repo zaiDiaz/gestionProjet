@@ -9,28 +9,27 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Fournisseur implements Serializable {
+public class Fournisseur implements Serializable{
 
 	@Id
 	@GeneratedValue
 	private Long idFournisseur;
-
+	
 	private String nom;
-
+	
 	private String prenom;
-
+	
 	private String adresse;
-
+	
 	private String photo;
-
+	
 	private String mail;
-
+	
 	@OneToMany(mappedBy = "fournisseur")
 	private List<CommandeFournisseur> commandeFournisseurs;
-
+	
 	public Fournisseur() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Long getIdFournisseur() {
@@ -88,5 +87,4 @@ public class Fournisseur implements Serializable {
 	public void setCommandeFournisseurs(List<CommandeFournisseur> commandeFournisseurs) {
 		this.commandeFournisseurs = commandeFournisseurs;
 	}
-
 }

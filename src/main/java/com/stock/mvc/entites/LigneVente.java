@@ -7,11 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
-public class LigneVente implements Serializable {
-	
+public class LigneVente implements Serializable{
+
 	@Id
 	@GeneratedValue
 	private Long idLigneVente;
@@ -21,7 +20,7 @@ public class LigneVente implements Serializable {
 	private Article article;
 	
 	@ManyToOne
-	@JoinColumn(name = "idVente")
+	@JoinColumn(name = "vente")
 	private Vente vente;
 
 	public Long getIdLigneVente() {

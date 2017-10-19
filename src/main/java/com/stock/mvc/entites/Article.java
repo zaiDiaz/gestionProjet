@@ -12,31 +12,30 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "article")
-public class Article implements Serializable {
+public class Article implements Serializable{
 
 	@Id
 	@GeneratedValue
 	private Long idArticle;
-
+	
 	private String codeArticle;
-
-	private String description;
-
+	
+	private String designation;
+	
 	private BigDecimal prixUnitaireHT;
-
+	
 	private BigDecimal tauxTva;
-
+	
 	private BigDecimal prixUnitaireTTC;
-
+	
 	private String photo;
-
-	public Article() {
-		super();
-	}
-
+	
 	@ManyToOne
 	@JoinColumn(name = "idCategory")
 	private Category category;
+	
+	public Article() {
+	}
 
 	public Long getIdArticle() {
 		return idArticle;
@@ -54,12 +53,12 @@ public class Article implements Serializable {
 		this.codeArticle = codeArticle;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getDesignation() {
+		return designation;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDesignation(String designation) {
+		this.designation = designation;
 	}
 
 	public BigDecimal getPrixUnitaireHT() {
@@ -100,6 +99,5 @@ public class Article implements Serializable {
 
 	public void setCategory(Category category) {
 		this.category = category;
-	}
-
+	}	
 }

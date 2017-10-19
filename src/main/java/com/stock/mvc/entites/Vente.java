@@ -12,17 +12,17 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Vente implements Serializable {
+public class Vente implements Serializable{
 
 	@Id
 	@GeneratedValue
 	private Long idVente;
-
+	
 	private String code;
-
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateVente;
-
+	
 	@OneToMany(mappedBy = "vente")
 	private List<LigneVente> ligneVentes;
 
@@ -57,5 +57,7 @@ public class Vente implements Serializable {
 	public void setLigneVentes(List<LigneVente> ligneVentes) {
 		this.ligneVentes = ligneVentes;
 	}
-
+	
+	
+	
 }

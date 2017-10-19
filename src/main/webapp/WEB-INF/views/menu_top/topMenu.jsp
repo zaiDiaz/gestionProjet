@@ -177,7 +177,15 @@
 					Profile</a></li>
 			<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
 			<li class="divider"></li>
-			<li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>
+			<c:url value="/changeLocale/fr" var="frUrl" />
+			<c:url value="/changeLocale/en" var="enUrl" />
+			<li><a href="${frUrl }"><i class="fa fa-glob fa-fw"></i>
+				<fmt:message code="locale.fr" /></a></li>
+			<li><a href="${enUrl }"><i class="fa fa-glob fa-fw"></i>
+				<fmt:message code="locale.en" /></a></li>
+			<li class="divider"></li>
+			<c:url value="/j_spring_security_logout" var="logout" />
+			<li><a href="${logout }"><i class="fa fa-sign-out fa-fw"></i>
 					Logout</a></li>
 		</ul> <!-- /.dropdown-user --></li>
 	<!-- /.dropdown -->

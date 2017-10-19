@@ -9,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class LigneCommandeClient implements Serializable {
+public class LigneCommandeClient implements Serializable{
 
 	@Id
 	@GeneratedValue
@@ -46,5 +46,4 @@ public class LigneCommandeClient implements Serializable {
 	public void setCommandeClient(CommandeClient commandeClient) {
 		this.commandeClient = commandeClient;
 	}
-
 }

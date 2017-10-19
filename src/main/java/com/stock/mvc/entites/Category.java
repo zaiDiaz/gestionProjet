@@ -8,23 +8,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+
 @Entity
-public class Category implements Serializable {
+public class Category implements Serializable{
 
 	@Id
 	@GeneratedValue
 	private Long idCategory;
-
+	
 	private String code;
-
+	
 	private String designation;
 	
 	@OneToMany(mappedBy = "category")
 	private List<Article> articles;
-
+	
 	public Category() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Long getIdCategory() {
@@ -58,5 +57,4 @@ public class Category implements Serializable {
 	public void setArticles(List<Article> articles) {
 		this.articles = articles;
 	}
-
 }

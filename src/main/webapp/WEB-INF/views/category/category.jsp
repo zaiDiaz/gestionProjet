@@ -50,7 +50,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header"><fmt:message key="common.parametrage.category" /></h1>
+                        <h1 class="page-header"><fmt:message code="common.parametrage.category" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -62,9 +62,9 @@
                 <div class="row">
 					<div class="col-lg-12">
 						<ol class="breadcrumb">
-						  <li><a href="<c:url value="/category/nouveau" />" ><i class="fa fa-plus">&nbsp;<fmt:message key="common.ajouter" /></i></a></li>
-						  <li><a href="#"><i class="fa fa-download">&nbsp;<fmt:message key="common.exporter" /></i></a></li>
-						  <li><a href="#"><i class="fa fa-upload">&nbsp;<fmt:message key="common.importer" /></i></a></li>
+						  <li><a href="<c:url value="/category/nouveau" />" ><i class="fa fa-plus">&nbsp;<fmt:message code="common.ajouter" /></i></a></li>
+						  <li><a href="#"><i class="fa fa-download">&nbsp;<fmt:message code="common.exporter" /></i></a></li>
+						  <li><a href="#"><i class="fa fa-upload">&nbsp;<fmt:message code="common.importer" /></i></a></li>
 						</ol>					
 					</div>                
                 </div>
@@ -73,16 +73,16 @@
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <fmt:message key="category.liste" />
+                            <fmt:message code="category.liste" />
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th><fmt:message key="common.code" /></th>
-                                        <th><fmt:message key="common.designation" /></th>
-                                        <th><fmt:message key="common.actions" /></th>
+                                        <th><fmt:message code="common.code" /></th>
+                                        <th><fmt:message code="common.designation" /></th>
+                                        <th><fmt:message code="common.actions" /></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -100,15 +100,15 @@
 														<div class="modal-content">
 															<div class="modal-header">
 																<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-																<h4 class="modal-title" id="myModalLabel"><fmt:message key="common.confirm.suppression" /></h4>
+																<h4 class="modal-title" id="myModalLabel"><fmt:message code="common.confirm.suppression" /></h4>
 															</div>
 															<div class="modal-body">
-																<fmt:message key="category.confirm.suppression.msg" />
+																<fmt:message code="category.confirm.suppression.msg" />
 															</div>
 															<div class="modal-footer">
-																<button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="common.annuler" /></button>
+																<button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message code="common.annuler" /></button>
 																<c:url value="/category/supprimer/${cat.getIdCategory() }" var="urlSuppression" />
-																<button type="button" data-dismiss="modal" class="btn btn-danger supprimerArticle" onclick="supprimerArticle(${urlSuppression });"><i class="fa fa-trash-o"></i>&nbsp;<fmt:message key="common.confirmer" /></button>
+																<button type="button" data-dismiss="modal" class="btn btn-danger supprimerArticle" onclick="supprimerArticle(${urlSuppression });"><i class="fa fa-trash-o"></i>&nbsp;<fmt:message code="common.confirmer" /></button>
 															</div>
 														</div>
 														<!-- /.modal-content -->

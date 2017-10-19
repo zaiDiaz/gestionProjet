@@ -9,16 +9,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class LigneCommandeFournisseur implements Serializable {
+public class LigneCommandeFournisseur implements Serializable{
 
 	@Id
 	@GeneratedValue
 	private Long idLigneCdeFrs;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "idArticle")
 	private Article article;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "idCommandeFournisseur")
 	private CommandeFournisseur commandeFournisseur;
@@ -46,5 +46,6 @@ public class LigneCommandeFournisseur implements Serializable {
 	public void setCommandeFournisseur(CommandeFournisseur commandeFournisseur) {
 		this.commandeFournisseur = commandeFournisseur;
 	}
-
+	
+	
 }

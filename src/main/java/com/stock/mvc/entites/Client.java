@@ -9,28 +9,27 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Client implements Serializable {
+public class Client implements Serializable{
 
 	@Id
 	@GeneratedValue
 	private Long idClient;
-
+	
 	private String nom;
-
+	
 	private String prenom;
-
+	
 	private String adresse;
-
+	
 	private String photo;
-
+	
 	private String mail;
 	
 	@OneToMany(mappedBy = "client")
 	private List<CommandeClient> commandeClients;
-
+	
 	public Client() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Long getIdClient() {
@@ -88,7 +87,4 @@ public class Client implements Serializable {
 	public void setCommandeClients(List<CommandeClient> commandeClients) {
 		this.commandeClients = commandeClients;
 	}
-	
-	
-
 }
