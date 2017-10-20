@@ -89,6 +89,14 @@ public class Utilisateur implements Serializable{
 	public void setActived(boolean actived) {
 		this.actived = actived;
 	}
+
+	public List<Roles> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Roles> roles) {
+		this.roles = roles;
+	}
 	
 	
 	

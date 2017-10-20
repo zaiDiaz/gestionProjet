@@ -1,6 +1,6 @@
 <%@ include file="/WEB-INF/views/includes/includes.jsp" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 
@@ -43,13 +43,13 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" action="j_spring_security_check">
+                        <form role="form" action="j_spring_security_check" method="POST">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="j_username" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="j_password" type="password" value="">
+                                    <input class="form-control" placeholder="Password" name="j_password" type="password" >
                                 </div>
                                 <div class="checkbox">
                                     <label>
